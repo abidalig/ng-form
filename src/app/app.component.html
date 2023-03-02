@@ -1,0 +1,29 @@
+<h1>{{title}}</h1>
+ <form #basicForm="ngForm" (submit) ="getData(basicForm.value)">
+  <input type="text" ngModel name="name" placeholder="Enter username"> <br><br>
+  <input type="email" ngModel name="email" placeholder="Enter email"> <br><br>
+  <input type="password" ngModel name="password" placeholder="Enter password"> <br><br>
+  <button type="submit">Register</button>
+</form>
+
+<h1>{{userData.name}}</h1>
+<h1>{{userData.email}}</h1>
+<h1>{{userData.password}}</h1> <br>
+<!--  To do list code -->
+<h1>To do list example </h1> <br>
+<input type="text" placeholder="enter new task" #task /> <br><br>
+<button (click)="addTask(task.value)">Add Task</button> <br><br>
+<ul *ngFor="let item of list">
+  <li>{{item.name}} <button (click)="remove(item.id)" >remove</button></li>
+</ul> <br>
+
+<h1>Template driven login form</h1>
+<form #login="ngForm" (ngSubmit) ="userlogin(login.value)" >
+  <input type="text" required #nameid="ngModel" pattern="[a-zA-Z]+$" placeholder="enter name" name="name" ngModel> <br>
+  <span *ngIf ="nameid.invalid && nameid.touched">please enter valid input data</span> <br> <br>
+  <input type="text" ngModel placeholder="enter password" name="password" > <br><br>
+  <button [disabled]= "login.invalid">Login</button>
+
+</form> 
+
+
